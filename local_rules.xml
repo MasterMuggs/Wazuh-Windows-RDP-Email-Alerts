@@ -1,0 +1,25 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<group name="local,syslog,sshd,">
+
+<!-- RDP Login Session Alert -->
+<rule id="100101" level="11">
+    <if_sid>60009</if_sid>
+    <field name="win.system.channel">^Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational$</field>
+    <description>Terminal Services Remote Connection Manager</description>
+ </rule>
+
+<!-- RDP Login Session Alert Nightime -->
+<rule id="100100" level="12">
+  <if_sid>60009</if_sid>
+  <field name="win.system.channel">^Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational$</field>
+  <description>Terminal Services Remote Connection Manager (10 PM - 6 AM)</description>
+  <time>10:00 pm - 06:00 am</time>
+  </rule>
+
+
+
+</group>
