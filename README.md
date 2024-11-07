@@ -38,3 +38,11 @@ This ensures that the email will be sent out for the RDP Windows Ruleset.
   </email_alerts> 
 
 ```
+Lastly you will want to make sure you add the following line to the ossec.conf file on the endpoint.
+
+```
+<localfile>
+    <location>Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational</location>
+    <log_format>eventchannel</log_format>
+</localfile>
+```
